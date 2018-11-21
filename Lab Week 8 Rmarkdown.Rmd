@@ -1,0 +1,63 @@
+---
+title: "Lab Week 8"
+author: "Joslyn Fritz"
+date: "11/21/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(tidyverse)
+library(tidyr)
+library(vcdExtra)
+library(car)
+library(onewaytests)
+library(gridExtra)
+library(kableExtra)
+library(effsize)
+library(ggplot2)
+library(ggsignif)
+
+
+```
+
+
+```{r}
+
+salmon <- read_csv("salmon_imports.csv")
+
+```
+
+
+
+```{r}
+
+salmon_scatter <- ggplot(salmon, aes(x = year, y = salmon_imports)) +
+  geom_line() +
+  geom_point()
+
+salmon_scatter
+
+#Overall, does it look like describing the relationship between year and fresh salmon imports using linear regression makes sense? Do you have any concerns about using linear regression to describe the relationship?
+# Overall, the relationship looks linear, except for the few outliers. Linear regressions are important in determining 
+
+```
+
+```{r}
+# Salmon regression line
+
+#salmon_model <- lm(salmon_fresh ~ year, data = salmon)
+
+salmon_linear <- lm(salmon_imports ~ year, data = salmon)
+
+salmon_linear
+```
+
+
+
+
+
